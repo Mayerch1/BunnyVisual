@@ -27,6 +27,7 @@ void reproduce(bunny **anchor, int *bunnyCount, Point food[], Ui_BunnyWindowClas
 
 void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
 	bunny *p;
+	int feedRate = 0;
 	//go throug all bunnies
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
@@ -35,11 +36,13 @@ void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int
 			//if bunny in range, feed him
 			if (abs(food[i].x - p->coord.x) <= FEED_RANGE && abs(food[i].y - p->coord.y) <= FEED_RANGE) {
 				p->daySinceFeeded = 0;
+				feedRate++;
 				//emptyFood(anchor, p, food, foodDur, foodCount, i, bunnyCount, food_duration, ui, msgList);
 				//BETA: leave if food is destroyed
 			}
 		}
 	}
+	ui->lblFeedRate->setText(QString::number(feedRate));
 }//end feedBunnies
 
 void emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {

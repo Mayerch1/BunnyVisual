@@ -2,7 +2,7 @@ The Game of Life, or so,
 'simulates' a bunny population
 
 Download [x64/Release/BunnyVisual.exe](x64/Release/BunnyVisual.exe) (Don't forget the Dlls in [/Resources](/BunnyVisual/Resources)),<br />
-or go into [/BunnyVisual](BunnyVisual) and have fun.<br /><br />
+or go into [/BunnyVisual](/BunnyVisual) and have fun.<br /><br />
 
 Press ```k```to initiate a mass murder on half of the population.<br />
 Press ```w``` to accelerate and ```s``` to deccelerate the simulation.

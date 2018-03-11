@@ -56,7 +56,7 @@ DWORD WINAPI turnThread(LPVOID lpParam) {
 
 		infectBunnies(threadStruct->anchor, threadStruct->bunnyCount, *(threadStruct->infection_prob), threadStruct->food, threadStruct->ui, threadStruct->msgList);
 
-		moveBunny(threadStruct->anchor, threadStruct->food);
+		moveBunny(threadStruct->anchor, threadStruct->food, threadStruct->ui);
 
 		ageBunnies(threadStruct->anchor, threadStruct->bunnyCount, threadStruct->ui, threadStruct->msgList);
 

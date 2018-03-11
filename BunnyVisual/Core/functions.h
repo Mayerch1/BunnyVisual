@@ -21,7 +21,7 @@ void get_name(char *input, char *output);
 int inBounds(int x, int y);
 
 /*moves the bunny to a random free field*/
-void moveBunny(bunny **anchor, Point food[]);
+void moveBunny(bunny **anchor, Point food[], Ui_BunnyWindowClass *ui);
 
 /*find a free field and return offset towards it
 state==0	return a free field

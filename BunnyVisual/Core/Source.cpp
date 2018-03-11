@@ -210,9 +210,10 @@ int inBounds(int x, int y) {
 	return 1;
 }
 
-void moveBunny(bunny **anchor, Point food[]) {
+void moveBunny(bunny **anchor, Point food[], Ui_BunnyWindowClass *ui) {
 	Point offset;
 	bunny *p;
+	int moveRate = 0;
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		//get random free Field next to p->coord
@@ -224,9 +225,11 @@ void moveBunny(bunny **anchor, Point food[]) {
 			//add offset to coord
 			p->coord.x += offset.x;
 			p->coord.y += offset.y;
+			moveRate++;
 		}
 		//else don't move it
 	}
+	ui->lblMoveRate->setText(QString::number(moveRate));
 }//end moveBunny
 
 Point findField(bunny **anchor, int state, Point coords, Point food[]) {

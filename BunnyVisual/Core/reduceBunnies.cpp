@@ -58,6 +58,8 @@ bunny *killBunny(bunny **anchor, bunny *victim, int *bunnyCount, Ui_BunnyWindowC
 
 void famineBunnies(bunny **anchor, int *bunnyCount, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
 	int start = *bunnyCount;
+	int famineRate = 0;
+
 	if (*anchor == NULL) return;
 	//repeat until 1/2 are dead
 	while (*bunnyCount > (start / 2)) {
@@ -73,9 +75,11 @@ void famineBunnies(bunny **anchor, int *bunnyCount, Ui_BunnyWindowClass *ui, QLi
 
 		//kill him
 		killBunny(anchor, victim, bunnyCount, ui, msgList, " starved to death");
+		famineRate++;
 	}
 
 	starveMsg(start, bunnyCount, ui);
+	ui->lblFamineRate->setText(QString::number(famineRate));
 }//end starveBunnies
 
 void infectBunnies(bunny **anchor, int *bunnyCount, unsigned char infection_prob, Point food[], Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
@@ -119,11 +123,12 @@ void infectBunnies(bunny **anchor, int *bunnyCount, unsigned char infection_prob
 			}
 		}
 	}
-	ui->lblInfects->setText(QString::number(currInfects));
+	ui->lblInfectRate->setText(QString::number(currInfects));
 }//end infectBunnies
 
 void starveBunnies(bunny **anchor, int *bunnyCount, int max_hunger, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
 	bunny *p;
+	int starveRate = 0;
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		p->daySinceFeeded++;
@@ -132,6 +137,9 @@ void starveBunnies(bunny **anchor, int *bunnyCount, int max_hunger, Ui_BunnyWind
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->daySinceFeeded >= max_hunger) {
 			p = killBunny(anchor, p, bunnyCount, ui, msgList, " was to dump to eat");
+			starveRate++;
 		}
 	}
+
+	ui->lblStarveRate->setText(QString::number(starveRate));
 }//end starveBunnies

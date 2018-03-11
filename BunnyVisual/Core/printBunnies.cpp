@@ -95,7 +95,7 @@ void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui) {
 	}
 	LeaveCriticalSection(&g_fprint);
 
-	ui->listMsg->addItem("Food shortage killed" + QString::number(start - *bunnyCount));
+	ui->listMsg->addItem("Food shortage killed " + QString::number(start - *bunnyCount));
 }
 
 void printInfo(bunny *anchor, int *bunnyCount, int cycles, char log) {
