@@ -96,4 +96,22 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Qt5Core.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Qt5Gui.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Qt5Widgets.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\README.md" />
+    <None Include="..\SaveDoc.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\rabbit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -21,6 +21,9 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
+	setWindowIcon(QIcon("/Resources/Rabbit.ico"));
+
 	settings = new SettingsWindow();
 
 	srand((unsigned int)time(NULL));
