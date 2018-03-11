@@ -207,6 +207,7 @@ int inBounds(int x, int y) {
 	if (x < 0 || x > gridX || y < 0 || y > gridY) {
 		return 0;
 	}
+
 	return 1;
 }
 
