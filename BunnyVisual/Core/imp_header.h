@@ -1,5 +1,6 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
+//9px zw recht. Rand und recht Box
 
 #include <stdio.h>
 #include <stdlib.h>

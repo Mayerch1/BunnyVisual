@@ -17,8 +17,8 @@ contact @https://github.com/mayerch1
 
 FILE *myfile;
 
-int gridX = 116;	//100, 60
-int gridY = 83;		//how large is your console?
+int gridX = 60;	//100, 60
+int gridY = 70;		//how large is your console?
 int foodCount = 5;
 
 void strcpy_safe(char *output, int str_len, const char* input) {

@@ -47,10 +47,12 @@ public:
 	void on_btnStart_clicked();
 	void on_btnSettings_clicked();
 	void on_btnDetails_clicked();
+	void on_btnSnapshot_clicked();
 
 protected:
 	void BunnyWindow::keyPressEvent(QKeyEvent *);
 	void BunnyWindow::paintEvent(QPaintEvent *e);
+	void BunnyWindow::resizeEvent(QResizeEvent *e);
 
 private:
 	Ui::BunnyWindowClass ui;

@@ -2,10 +2,13 @@
 #include "Core/functions.h"
 
 #include "BunnyWindow.h"
+#include <Windows.h>
 #include "SettingsWindow.h"
 #include <limits.h>
 
 #include <QKeyEvent>
+
+//BETA: csv statistics
 
 CRITICAL_SECTION g_fprint;
 CRITICAL_SECTION g_bunny;
@@ -21,7 +24,7 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-
+	ui.btnStart->setText("Start");
 	setWindowIcon(QIcon("/Resources/Rabbit.ico"));
 
 	settings = new SettingsWindow();
@@ -198,7 +201,7 @@ void BunnyWindow::paintEvent(QPaintEvent *e) {
 void BunnyWindow::keyPressEvent(QKeyEvent *e) {
 	if (e->key() == Qt::Key_W) {
 		if (sleep_time <= 250) {
-			sleep_time = 100;	//fastest possible
+			sleep_time = 125;	//fastest possible
 			msgList[speed]->setText("reached fastest speed of " + QString::number(sleep_time) + " ms");
 		}
 		else {
@@ -216,12 +219,18 @@ void BunnyWindow::keyPressEvent(QKeyEvent *e) {
 	}
 }
 
+void BunnyWindow::resizeEvent(QResizeEvent *e) {
+	//BETA: dynamic resize
+	ui.RenderArea->resize(e->size().width() - 237, e->size().height() - 39);
+	//ui.listMsg->move(100, 100);
+}
+
 void BunnyWindow::on_btnDetails_clicked() {
 	if (ui.listMsg->currentItem() == msgList[speed]) {
 		settings->show();
 	}
 	else if (ui.listMsg->currentItem() == msgList[birth]) {
-		//BETA: show attributes
+		//ALPHA: show attributes
 	}
 	else if (ui.listMsg->currentItem() == msgList[infect]) {
 	}
@@ -247,12 +256,6 @@ void BunnyWindow::disableButtons() {
 	settings->ui.boxLoad->setEnabled(false);
 	settings->ui.checkLoad->setEnabled(false);
 
-	if (load == 1) {
-		//BETA: make save after load possible
-		settings->ui.boxSave->setEnabled(false);
-		settings->ui.checkSave->setEnabled(false);
-	}
-
 	settings->ui.checkNoLog->setEnabled(false);
 
 	if (noLog == 1)
@@ -266,9 +269,9 @@ void BunnyWindow::on_btnStart_clicked() {
 	PdisplayList displayStruct;
 
 	//	settings.ui->boxGridX->setEnabled(false);
-
+	//ALPHA: stop button
 	if ("Stop" == ui.btnStart->text().toStdString()) {
-		ui.btnStart->setText("you really thougt you could controll this...");
+		ui.btnStart->setText("Computer says no");
 		ui.btnStart->setEnabled(false);
 	}
 	else {
@@ -333,6 +336,36 @@ void BunnyWindow::on_btnStart_clicked() {
 		ResumeThread(gameHandle);
 		ResumeThread(displayHandle);
 	}
+}
+
+void BunnyWindow::on_btnSnapshot_clicked() {
+	FILE *savedGame = NULL;
+	QString strPath = ui.boxSnapshot->text();
+	QByteArray byteArr = strPath.toLatin1();
+	char *snapFile = byteArr.data();
+
+	static int i = 0, ti = 0, hi = 0;
+
+	if ((savedGame = fopen(snapFile, "wb")) == NULL) {
+		fprintf(stderr, "Could not write to savefile\n");
+	}
+	else {
+		EnterCriticalSection(&g_bunny);
+		saveGame(savedGame, gridX, gridY, anchor, food, foodDur, foodCount, max_hunger, bunnyCount, snapFile);
+		LeaveCriticalSection(&g_bunny);
+		fclose(savedGame);
+		if (++i >= 10) {
+			i = 0;
+			if (++ti >= 10) {
+				ti = 0;
+				hi++;
+			}
+		}
+		ui.boxSnapshot->setText("Snapshot_" + QString::number(hi) + QString::number(ti) + QString::number(i) + ".save");
+	}
+
+	//strcpy(setStruct->fileName, tmpFile);
+	//ui.boxLoad->setText(strPath);
 }
 
 void BunnyWindow::openFile() {

@@ -78,7 +78,7 @@ void famineBunnies(bunny **anchor, int *bunnyCount, Ui_BunnyWindowClass *ui, QLi
 		famineRate++;
 	}
 
-	starveMsg(start, bunnyCount, ui);
+	starveMsg(start, bunnyCount, ui, msgList);
 	ui->lblFamineRate->setText(QString::number(famineRate));
 }//end starveBunnies
 

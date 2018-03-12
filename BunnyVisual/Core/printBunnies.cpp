@@ -88,14 +88,14 @@ void eolMsg(bunny *victim, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList, c
 	msgList[death]->setText(QString::fromStdString(strName) + QString::fromStdString(deathString));
 }
 
-void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui) {
+void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
 	EnterCriticalSection(&g_fprint);
 	if (myfile != NULL) {
 		fprintf(myfile, "\n\nFood shortage killed %d bunnies\n\n", start - *bunnyCount);
 	}
 	LeaveCriticalSection(&g_fprint);
 
-	ui->listMsg->addItem("Food shortage killed " + QString::number(start - *bunnyCount));
+	msgList[misc]->setText("Food shortage killed " + QString::number(start - *bunnyCount));
 }
 
 void printInfo(bunny *anchor, int *bunnyCount, int cycles, char log) {
@@ -130,7 +130,7 @@ void printInfo(bunny *anchor, int *bunnyCount, int cycles, char log) {
 	}
 }//end displayInfo
 
-void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]) {
+void saveGame(FILE *savedGame, int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]) {
 	/*
 		{arg1,arg2,arg3};
 		{foodx,foody,food2,food3}
@@ -139,12 +139,9 @@ void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], 
 		{sex,color,age,...}
 		{sex,color,age,...};
 	*/
-	FILE *savedGame;
-
-	if ((savedGame = fopen(fileName, "wb")) == NULL) {
-		fprintf(stderr, "Could not write to savefile\n");
+	if (savedGame == NULL)
 		return;
-	}
+
 	fprintf(savedGame, "!!Modify at your own risk, wrong values could lead to pointer access violation. Be careful with hidden nl and blancs!!\n");
 	//fundamental args
 	fprintf(savedGame, "{");
@@ -173,5 +170,4 @@ void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], 
 	}
 	//push and close stream
 	fflush(savedGame);
-	fclose(savedGame);
 }//end saveGame

@@ -15,6 +15,7 @@ DWORD WINAPI gameThread(LPVOID lpParam) {
 
 DWORD WINAPI printThread(LPVOID lpParam) {
 	PthreadData threadStruct = (PthreadData)lpParam;
+	FILE *savedGame;
 
 	while (true) {
 		//display Cylce and Bunny-count
@@ -25,7 +26,14 @@ DWORD WINAPI printThread(LPVOID lpParam) {
 
 		printInfo(*(threadStruct->anchor), threadStruct->bunnyCount, *(threadStruct->cycles), *(threadStruct->log));
 		//save the game
-		if (*(threadStruct->save) == 1) saveGame(gridX, gridY, *(threadStruct->anchor), threadStruct->food, threadStruct->foodDur, *(threadStruct->foodCount), *(threadStruct->max_hunger), *(threadStruct->bunnyCount), threadStruct->fileName);
+		if (*(threadStruct->save) == 1) {
+			if ((savedGame = fopen(threadStruct->fileName, "wb")) == NULL) {
+				fprintf(stderr, "Could not write to savefile\n");
+			}
+			saveGame(savedGame, gridX, gridY, *(threadStruct->anchor), threadStruct->food, threadStruct->foodDur, *(threadStruct->foodCount), *(threadStruct->max_hunger), *(threadStruct->bunnyCount), threadStruct->fileName);
+			fclose(savedGame);
+			threadStruct->msgList[misc]->setText("Saved game");
+		}
 
 		LeaveCriticalSection(&g_bunny);
 
@@ -34,6 +42,7 @@ DWORD WINAPI printThread(LPVOID lpParam) {
 
 		Sleep(*(threadStruct->sleep_time));
 	}
+	fclose(savedGame);
 	return 0;
 }
 

@@ -110,8 +110,8 @@ void reproduce(bunny **anchor, int *bunnyCount, Point food[], Ui_BunnyWindowClas
 /*feed a bunny, if in range of a food source*/
 void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList);
 
-/*checks if foodsource has resources, if not generate a new one in radius 10*/
-void emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList);
+/*checks if foodsource has resources, if not generate a new one in radius 10, returns true, if bunny was killed due to moved food source*/
+bool emptyFood(bunny **anchor, bunny *p, Point food[], int foodDur[], int foodCount, int foodPos, int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList);
 
 #endif
 
@@ -131,9 +131,9 @@ void infectMsg(bunny *victim, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList
 void eolMsg(bunny *victim, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList, const char *deathMSG);
 
 /*prints starve message (and reason)*/
-void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui);
+void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList);
 
 /*if --save, print all bunnies with attributes to file for later --load*/
-void saveGame(int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]);
+void saveGame(FILE *savedGame, int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]);
 
 #endif
