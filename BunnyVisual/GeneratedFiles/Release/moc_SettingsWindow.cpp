@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SettingsWindow_t {
-    QByteArrayData data[19];
-    char stringdata0[458];
+    QByteArrayData data[21];
+    char stringdata0[507];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -48,8 +48,10 @@ QT_MOC_LITERAL(13, 304, 25), // "on_checkLoad_stateChanged"
 QT_MOC_LITERAL(14, 330, 25), // "on_checkSave_stateChanged"
 QT_MOC_LITERAL(15, 356, 24), // "on_checkLog_stateChanged"
 QT_MOC_LITERAL(16, 381, 26), // "on_checkNoLog_stateChanged"
-QT_MOC_LITERAL(17, 408, 24), // "on_boxSave_returnPressed"
-QT_MOC_LITERAL(18, 433, 24) // "on_boxLoad_returnPressed"
+QT_MOC_LITERAL(17, 408, 24), // "on_checkCsv_stateChanged"
+QT_MOC_LITERAL(18, 433, 24), // "on_boxSave_returnPressed"
+QT_MOC_LITERAL(19, 458, 24), // "on_boxLoad_returnPressed"
+QT_MOC_LITERAL(20, 483, 23) // "on_boxCsv_returnPressed"
 
     },
     "SettingsWindow\0on_btnExit_clicked\0\0"
@@ -66,8 +68,10 @@ QT_MOC_LITERAL(18, 433, 24) // "on_boxLoad_returnPressed"
     "on_checkSave_stateChanged\0"
     "on_checkLog_stateChanged\0"
     "on_checkNoLog_stateChanged\0"
+    "on_checkCsv_stateChanged\0"
     "on_boxSave_returnPressed\0"
-    "on_boxLoad_returnPressed"
+    "on_boxLoad_returnPressed\0"
+    "on_boxCsv_returnPressed"
 };
 #undef QT_MOC_LITERAL
 
@@ -77,7 +81,7 @@ static const uint qt_meta_data_SettingsWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -85,22 +89,24 @@ static const uint qt_meta_data_SettingsWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   94,    2, 0x08 /* Private */,
-       3,    1,   95,    2, 0x08 /* Private */,
-       5,    1,   98,    2, 0x08 /* Private */,
-       6,    1,  101,    2, 0x08 /* Private */,
-       7,    1,  104,    2, 0x08 /* Private */,
-       8,    1,  107,    2, 0x08 /* Private */,
-       9,    1,  110,    2, 0x08 /* Private */,
-      10,    1,  113,    2, 0x08 /* Private */,
-      11,    1,  116,    2, 0x08 /* Private */,
-      12,    1,  119,    2, 0x08 /* Private */,
-      13,    1,  122,    2, 0x08 /* Private */,
-      14,    1,  125,    2, 0x08 /* Private */,
-      15,    1,  128,    2, 0x08 /* Private */,
-      16,    1,  131,    2, 0x08 /* Private */,
-      17,    0,  134,    2, 0x08 /* Private */,
-      18,    0,  135,    2, 0x08 /* Private */,
+       1,    0,  104,    2, 0x08 /* Private */,
+       3,    1,  105,    2, 0x08 /* Private */,
+       5,    1,  108,    2, 0x08 /* Private */,
+       6,    1,  111,    2, 0x08 /* Private */,
+       7,    1,  114,    2, 0x08 /* Private */,
+       8,    1,  117,    2, 0x08 /* Private */,
+       9,    1,  120,    2, 0x08 /* Private */,
+      10,    1,  123,    2, 0x08 /* Private */,
+      11,    1,  126,    2, 0x08 /* Private */,
+      12,    1,  129,    2, 0x08 /* Private */,
+      13,    1,  132,    2, 0x08 /* Private */,
+      14,    1,  135,    2, 0x08 /* Private */,
+      15,    1,  138,    2, 0x08 /* Private */,
+      16,    1,  141,    2, 0x08 /* Private */,
+      17,    1,  144,    2, 0x08 /* Private */,
+      18,    0,  147,    2, 0x08 /* Private */,
+      19,    0,  148,    2, 0x08 /* Private */,
+      20,    0,  149,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -117,6 +123,8 @@ static const uint qt_meta_data_SettingsWindow[] = {
     QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -143,8 +151,10 @@ void SettingsWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 11: _t->on_checkSave_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: _t->on_checkLog_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 13: _t->on_checkNoLog_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: _t->on_boxSave_returnPressed(); break;
-        case 15: _t->on_boxLoad_returnPressed(); break;
+        case 14: _t->on_checkCsv_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 15: _t->on_boxSave_returnPressed(); break;
+        case 16: _t->on_boxLoad_returnPressed(); break;
+        case 17: _t->on_boxCsv_returnPressed(); break;
         default: ;
         }
     }
@@ -175,13 +185,13 @@ int SettingsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 18)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 16;
+        _id -= 18;
     }
     return _id;
 }

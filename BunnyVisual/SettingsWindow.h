@@ -34,9 +34,11 @@ public:
 	void on_checkSave_stateChanged(int i);
 	void on_checkLog_stateChanged(int i);
 	void on_checkNoLog_stateChanged(int i);
+	void on_checkCsv_stateChanged(int i);
 
 	void on_boxSave_returnPressed();
 	void on_boxLoad_returnPressed();
+	void on_boxCsv_returnPressed();
 
 private:
 };

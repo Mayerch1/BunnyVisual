@@ -15,6 +15,7 @@ class BunnyWindow : public QMainWindow
 
 public:
 	BunnyWindow(QWidget *parent = Q_NULLPTR);
+	void BunnyWindow::initCsv();
 	~BunnyWindow();
 
 	PargList argStruct;
@@ -27,14 +28,17 @@ public:
 
 	QListWidgetItem *msgList[6];
 
+	bool isRunning = false;
+
 	unsigned int max_colony_size = 1000;
 	unsigned char infection_prob = 80; //in %
 	char log = 0, noLog = 1;
 	unsigned int start_Bunnies = 15;
 	unsigned int sleep_time = 750;
-	char save = 0, load = 0;
+	char save = 0, load = 0, csv = 0;
 	int food_duration = 4717;
 	char fileName[NAME_LEN] = "game01.save";
+	char csvName[NAME_LEN] = "stats01.csv";
 
 	int file_len = sizeof(fileName) / sizeof((fileName)[0]);
 	//define as variable, for disabled food sources
@@ -46,13 +50,11 @@ public:
 	private slots:
 	void on_btnStart_clicked();
 	void on_btnSettings_clicked();
-	void on_btnDetails_clicked();
 	void on_btnSnapshot_clicked();
 
 protected:
 	void BunnyWindow::keyPressEvent(QKeyEvent *);
 	void BunnyWindow::paintEvent(QPaintEvent *e);
-	void BunnyWindow::resizeEvent(QResizeEvent *e);
 
 private:
 	Ui::BunnyWindowClass ui;

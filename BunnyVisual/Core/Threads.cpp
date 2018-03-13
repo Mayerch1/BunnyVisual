@@ -16,6 +16,7 @@ DWORD WINAPI gameThread(LPVOID lpParam) {
 DWORD WINAPI printThread(LPVOID lpParam) {
 	PthreadData threadStruct = (PthreadData)lpParam;
 	FILE *savedGame;
+	FILE *logedGame;
 
 	while (true) {
 		//display Cylce and Bunny-count
@@ -34,8 +35,16 @@ DWORD WINAPI printThread(LPVOID lpParam) {
 			fclose(savedGame);
 			threadStruct->msgList[misc]->setText("Saved game");
 		}
-
 		LeaveCriticalSection(&g_bunny);
+
+		if (*threadStruct->csv == 1) {
+			if ((logedGame = fopen(threadStruct->csvName, "ab")) == NULL) {
+				fprintf(stderr, "Could not write to logfile\n");
+			}
+			logGame(logedGame, threadStruct->ui);
+			fclose(logedGame);
+			threadStruct->msgList[misc]->setText("Logged file");
+		}
 
 		//in case of program termination
 		if (*(threadStruct->noLog) != 1) fflush(myfile);

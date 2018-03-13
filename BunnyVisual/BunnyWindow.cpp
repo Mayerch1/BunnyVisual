@@ -8,8 +8,6 @@
 
 #include <QKeyEvent>
 
-//BETA: csv statistics
-
 CRITICAL_SECTION g_fprint;
 CRITICAL_SECTION g_bunny;
 
@@ -38,8 +36,10 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	argStruct = (PargList)malloc(sizeof(argList));
 	argStruct->ui = &ui;
 	argStruct->fileName = fileName;
+	argStruct->csvName = csvName;
 	argStruct->save = &save;
 	argStruct->load = &load;
+	argStruct->csv = &csv;
 	argStruct->log = &log;
 	argStruct->noLog = &noLog;
 	argStruct->max_hunger = &max_hunger;
@@ -219,23 +219,6 @@ void BunnyWindow::keyPressEvent(QKeyEvent *e) {
 	}
 }
 
-void BunnyWindow::resizeEvent(QResizeEvent *e) {
-	//BETA: dynamic resize
-	ui.RenderArea->resize(e->size().width() - 237, e->size().height() - 39);
-	//ui.listMsg->move(100, 100);
-}
-
-void BunnyWindow::on_btnDetails_clicked() {
-	if (ui.listMsg->currentItem() == msgList[speed]) {
-		settings->show();
-	}
-	else if (ui.listMsg->currentItem() == msgList[birth]) {
-		//ALPHA: show attributes
-	}
-	else if (ui.listMsg->currentItem() == msgList[infect]) {
-	}
-}
-
 void BunnyWindow::on_btnSettings_clicked() {
 	settings->get_args(argStruct);
 	settings->show();
@@ -258,6 +241,9 @@ void BunnyWindow::disableButtons() {
 
 	settings->ui.checkNoLog->setEnabled(false);
 
+	settings->ui.checkCsv->setEnabled(false);
+	settings->ui.boxCsv->setEnabled(false);
+
 	if (noLog == 1)
 		settings->ui.checkLog->setEnabled(false);
 }
@@ -269,20 +255,21 @@ void BunnyWindow::on_btnStart_clicked() {
 	PdisplayList displayStruct;
 
 	//	settings.ui->boxGridX->setEnabled(false);
-	//ALPHA: stop button
+	//BETA: stop button
 	if ("Stop" == ui.btnStart->text().toStdString()) {
 		ui.btnStart->setText("Computer says no");
 		ui.btnStart->setEnabled(false);
 	}
 	else {
 		ui.btnStart->setText("Stop");
+		isRunning = true;
 
 		BunnyWindow::disableButtons();
 
 		//ui.btnStart->setEnabled(false);
 
 		openFile();
-
+		initCsv();
 		execLoad(&load, &max_hunger, fileName, &bunnyCount, &anchor, food, foodDur, &food_duration);
 
 		//disable food sources
@@ -339,6 +326,9 @@ void BunnyWindow::on_btnStart_clicked() {
 }
 
 void BunnyWindow::on_btnSnapshot_clicked() {
+	if (isRunning == false)
+		return;
+
 	FILE *savedGame = NULL;
 	QString strPath = ui.boxSnapshot->text();
 	QByteArray byteArr = strPath.toLatin1();
@@ -421,4 +411,14 @@ void BunnyWindow::execLoad(char *load, int *max_hunger, char *fileName, int *bun
 		//reset foodCount
 		foodCount = tmpFood;
 	}
+}
+
+void BunnyWindow::initCsv() {
+	FILE *csvFile;
+	if ((csvFile = fopen(csvName, "wb")) == NULL) {
+		fprintf(stderr, "Could not write to log file.\n");
+		return;
+	}
+	fprintf(csvFile, "Cycles,BunnyCount,InfectRate,FeedRate,MoveRate,StarveRate,MassDeath\n");
+	fclose(csvFile);
 }

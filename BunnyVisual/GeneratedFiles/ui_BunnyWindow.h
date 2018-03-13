@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -32,7 +33,7 @@ class Ui_BunnyWindowClass
 public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_11;
-    QWidget *RenderArea;
+    QFrame *RenderArea;
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -86,7 +87,7 @@ public:
     {
         if (BunnyWindowClass->objectName().isEmpty())
             BunnyWindowClass->setObjectName(QStringLiteral("BunnyWindowClass"));
-        BunnyWindowClass->resize(898, 802);
+        BunnyWindowClass->resize(1174, 749);
         BunnyWindowClass->setMinimumSize(QSize(836, 400));
         BunnyWindowClass->setMaximumSize(QSize(16777215, 16777215));
         BunnyWindowClass->setTabShape(QTabWidget::Rounded);
@@ -96,13 +97,20 @@ public:
         horizontalLayout_11->setSpacing(6);
         horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        RenderArea = new QWidget(centralWidget);
+        RenderArea = new QFrame(centralWidget);
         RenderArea->setObjectName(QStringLiteral("RenderArea"));
-        RenderArea->setMinimumSize(QSize(600, 0));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(RenderArea->sizePolicy().hasHeightForWidth());
+        RenderArea->setSizePolicy(sizePolicy);
+        RenderArea->setMinimumSize(QSize(100, 100));
+        RenderArea->setFrameShape(QFrame::StyledPanel);
+        RenderArea->setFrameShadow(QFrame::Raised);
 
         horizontalLayout_11->addWidget(RenderArea);
 
-        horizontalSpacer_2 = new QSpacerItem(50, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_11->addItem(horizontalSpacer_2);
 
@@ -114,11 +122,11 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         listMsg = new QListWidget(centralWidget);
         listMsg->setObjectName(QStringLiteral("listMsg"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(listMsg->sizePolicy().hasHeightForWidth());
-        listMsg->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(listMsg->sizePolicy().hasHeightForWidth());
+        listMsg->setSizePolicy(sizePolicy1);
         listMsg->setFocusPolicy(Qt::NoFocus);
         listMsg->setUniformItemSizes(true);
 
@@ -127,21 +135,21 @@ public:
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout_9->addItem(horizontalSpacer_11);
 
         btnDetails = new QPushButton(centralWidget);
         btnDetails->setObjectName(QStringLiteral("btnDetails"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(btnDetails->sizePolicy().hasHeightForWidth());
-        btnDetails->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(btnDetails->sizePolicy().hasHeightForWidth());
+        btnDetails->setSizePolicy(sizePolicy2);
 
         horizontalLayout_9->addWidget(btnDetails);
 
-        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
 
         horizontalLayout_9->addItem(horizontalSpacer_12);
 
@@ -160,8 +168,8 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         btnStart = new QPushButton(centralWidget);
         btnStart->setObjectName(QStringLiteral("btnStart"));
-        sizePolicy1.setHeightForWidth(btnStart->sizePolicy().hasHeightForWidth());
-        btnStart->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(btnStart->sizePolicy().hasHeightForWidth());
+        btnStart->setSizePolicy(sizePolicy2);
 
         horizontalLayout->addWidget(btnStart);
 
@@ -171,8 +179,8 @@ public:
 
         btnSettings = new QPushButton(centralWidget);
         btnSettings->setObjectName(QStringLiteral("btnSettings"));
-        sizePolicy1.setHeightForWidth(btnSettings->sizePolicy().hasHeightForWidth());
-        btnSettings->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(btnSettings->sizePolicy().hasHeightForWidth());
+        btnSettings->setSizePolicy(sizePolicy2);
 
         horizontalLayout->addWidget(btnSettings);
 
@@ -188,18 +196,18 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         lbl_text_2 = new QLabel(centralWidget);
         lbl_text_2->setObjectName(QStringLiteral("lbl_text_2"));
-        QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(lbl_text_2->sizePolicy().hasHeightForWidth());
-        lbl_text_2->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(lbl_text_2->sizePolicy().hasHeightForWidth());
+        lbl_text_2->setSizePolicy(sizePolicy3);
 
         horizontalLayout_3->addWidget(lbl_text_2);
 
         lblCycles = new QLabel(centralWidget);
         lblCycles->setObjectName(QStringLiteral("lblCycles"));
-        sizePolicy2.setHeightForWidth(lblCycles->sizePolicy().hasHeightForWidth());
-        lblCycles->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblCycles->sizePolicy().hasHeightForWidth());
+        lblCycles->setSizePolicy(sizePolicy3);
 
         horizontalLayout_3->addWidget(lblCycles);
 
@@ -215,15 +223,15 @@ public:
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         lbl_text = new QLabel(centralWidget);
         lbl_text->setObjectName(QStringLiteral("lbl_text"));
-        sizePolicy2.setHeightForWidth(lbl_text->sizePolicy().hasHeightForWidth());
-        lbl_text->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lbl_text->sizePolicy().hasHeightForWidth());
+        lbl_text->setSizePolicy(sizePolicy3);
 
         horizontalLayout_5->addWidget(lbl_text);
 
         blbBunnyCount = new QLabel(centralWidget);
         blbBunnyCount->setObjectName(QStringLiteral("blbBunnyCount"));
-        sizePolicy2.setHeightForWidth(blbBunnyCount->sizePolicy().hasHeightForWidth());
-        blbBunnyCount->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(blbBunnyCount->sizePolicy().hasHeightForWidth());
+        blbBunnyCount->setSizePolicy(sizePolicy3);
 
         horizontalLayout_5->addWidget(blbBunnyCount);
 
@@ -239,15 +247,15 @@ public:
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         lbl_text_3 = new QLabel(centralWidget);
         lbl_text_3->setObjectName(QStringLiteral("lbl_text_3"));
-        sizePolicy2.setHeightForWidth(lbl_text_3->sizePolicy().hasHeightForWidth());
-        lbl_text_3->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lbl_text_3->sizePolicy().hasHeightForWidth());
+        lbl_text_3->setSizePolicy(sizePolicy3);
 
         horizontalLayout_6->addWidget(lbl_text_3);
 
         lblInfectRate = new QLabel(centralWidget);
         lblInfectRate->setObjectName(QStringLiteral("lblInfectRate"));
-        sizePolicy2.setHeightForWidth(lblInfectRate->sizePolicy().hasHeightForWidth());
-        lblInfectRate->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblInfectRate->sizePolicy().hasHeightForWidth());
+        lblInfectRate->setSizePolicy(sizePolicy3);
 
         horizontalLayout_6->addWidget(lblInfectRate);
 
@@ -263,15 +271,15 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         lbl_text_4 = new QLabel(centralWidget);
         lbl_text_4->setObjectName(QStringLiteral("lbl_text_4"));
-        sizePolicy2.setHeightForWidth(lbl_text_4->sizePolicy().hasHeightForWidth());
-        lbl_text_4->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lbl_text_4->sizePolicy().hasHeightForWidth());
+        lbl_text_4->setSizePolicy(sizePolicy3);
 
         horizontalLayout_2->addWidget(lbl_text_4);
 
         lblFeedRate = new QLabel(centralWidget);
         lblFeedRate->setObjectName(QStringLiteral("lblFeedRate"));
-        sizePolicy2.setHeightForWidth(lblFeedRate->sizePolicy().hasHeightForWidth());
-        lblFeedRate->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblFeedRate->sizePolicy().hasHeightForWidth());
+        lblFeedRate->setSizePolicy(sizePolicy3);
 
         horizontalLayout_2->addWidget(lblFeedRate);
 
@@ -287,15 +295,15 @@ public:
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         lbl_text_5 = new QLabel(centralWidget);
         lbl_text_5->setObjectName(QStringLiteral("lbl_text_5"));
-        sizePolicy2.setHeightForWidth(lbl_text_5->sizePolicy().hasHeightForWidth());
-        lbl_text_5->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lbl_text_5->sizePolicy().hasHeightForWidth());
+        lbl_text_5->setSizePolicy(sizePolicy3);
 
         horizontalLayout_7->addWidget(lbl_text_5);
 
         lblMoveRate = new QLabel(centralWidget);
         lblMoveRate->setObjectName(QStringLiteral("lblMoveRate"));
-        sizePolicy2.setHeightForWidth(lblMoveRate->sizePolicy().hasHeightForWidth());
-        lblMoveRate->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblMoveRate->sizePolicy().hasHeightForWidth());
+        lblMoveRate->setSizePolicy(sizePolicy3);
 
         horizontalLayout_7->addWidget(lblMoveRate);
 
@@ -311,15 +319,15 @@ public:
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         lbl_text_6 = new QLabel(centralWidget);
         lbl_text_6->setObjectName(QStringLiteral("lbl_text_6"));
-        sizePolicy2.setHeightForWidth(lbl_text_6->sizePolicy().hasHeightForWidth());
-        lbl_text_6->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lbl_text_6->sizePolicy().hasHeightForWidth());
+        lbl_text_6->setSizePolicy(sizePolicy3);
 
         horizontalLayout_4->addWidget(lbl_text_6);
 
         lblStarveRate = new QLabel(centralWidget);
         lblStarveRate->setObjectName(QStringLiteral("lblStarveRate"));
-        sizePolicy2.setHeightForWidth(lblStarveRate->sizePolicy().hasHeightForWidth());
-        lblStarveRate->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblStarveRate->sizePolicy().hasHeightForWidth());
+        lblStarveRate->setSizePolicy(sizePolicy3);
 
         horizontalLayout_4->addWidget(lblStarveRate);
 
@@ -335,15 +343,15 @@ public:
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy3);
 
         horizontalLayout_8->addWidget(label);
 
         lblFamineRate = new QLabel(centralWidget);
         lblFamineRate->setObjectName(QStringLiteral("lblFamineRate"));
-        sizePolicy2.setHeightForWidth(lblFamineRate->sizePolicy().hasHeightForWidth());
-        lblFamineRate->setSizePolicy(sizePolicy2);
+        sizePolicy3.setHeightForWidth(lblFamineRate->sizePolicy().hasHeightForWidth());
+        lblFamineRate->setSizePolicy(sizePolicy3);
 
         horizontalLayout_8->addWidget(lblFamineRate);
 
@@ -363,18 +371,18 @@ public:
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         boxSnapshot = new QLineEdit(centralWidget);
         boxSnapshot->setObjectName(QStringLiteral("boxSnapshot"));
-        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(boxSnapshot->sizePolicy().hasHeightForWidth());
-        boxSnapshot->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(boxSnapshot->sizePolicy().hasHeightForWidth());
+        boxSnapshot->setSizePolicy(sizePolicy4);
 
         horizontalLayout_10->addWidget(boxSnapshot);
 
         btnSnapshot = new QPushButton(centralWidget);
         btnSnapshot->setObjectName(QStringLiteral("btnSnapshot"));
-        sizePolicy3.setHeightForWidth(btnSnapshot->sizePolicy().hasHeightForWidth());
-        btnSnapshot->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(btnSnapshot->sizePolicy().hasHeightForWidth());
+        btnSnapshot->setSizePolicy(sizePolicy4);
 
         horizontalLayout_10->addWidget(btnSnapshot);
 
@@ -391,7 +399,7 @@ public:
         BunnyWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(BunnyWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 898, 21));
+        menuBar->setGeometry(QRect(0, 0, 1174, 21));
         BunnyWindowClass->setMenuBar(menuBar);
 
         retranslateUi(BunnyWindowClass);
@@ -418,7 +426,7 @@ public:
         lbl_text_6->setText(QApplication::translate("BunnyWindowClass", "Starve Rate", nullptr));
         lblStarveRate->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
         label->setText(QApplication::translate("BunnyWindowClass", "Mystery Number", nullptr));
-        lblFamineRate->setText(QApplication::translate("BunnyWindowClass", "167", nullptr));
+        lblFamineRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         boxSnapshot->setText(QApplication::translate("BunnyWindowClass", "Snapshot_001.save", nullptr));
         btnSnapshot->setText(QApplication::translate("BunnyWindowClass", "Save", nullptr));
     } // retranslateUi

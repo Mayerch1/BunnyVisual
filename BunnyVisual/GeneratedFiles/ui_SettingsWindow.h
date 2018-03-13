@@ -29,8 +29,8 @@ QT_BEGIN_NAMESPACE
 class Ui_SettingsWindow
 {
 public:
-    QHBoxLayout *horizontalLayout_15;
-    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_16;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -39,7 +39,6 @@ public:
     QLabel *label_2;
     QSpinBox *boxGridY;
     QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_3;
     QCheckBox *checkLoad;
@@ -48,6 +47,10 @@ public:
     QLabel *label_4;
     QCheckBox *checkSave;
     QLineEdit *boxSave;
+    QHBoxLayout *horizontalLayout_15;
+    QLabel *lbl_text;
+    QCheckBox *checkCsv;
+    QLineEdit *boxCsv;
     QSpacerItem *verticalSpacer_2;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_6;
@@ -93,13 +96,13 @@ public:
         if (SettingsWindow->objectName().isEmpty())
             SettingsWindow->setObjectName(QStringLiteral("SettingsWindow"));
         SettingsWindow->resize(549, 422);
-        horizontalLayout_15 = new QHBoxLayout(SettingsWindow);
-        horizontalLayout_15->setSpacing(6);
-        horizontalLayout_15->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        horizontalLayout_16 = new QHBoxLayout(SettingsWindow);
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -144,15 +147,12 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
 
-        verticalLayout_6->addLayout(verticalLayout);
+        verticalLayout_2->addLayout(verticalLayout);
 
         verticalSpacer = new QSpacerItem(20, 28, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_6->addItem(verticalSpacer);
+        verticalLayout_2->addItem(verticalSpacer);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
@@ -200,12 +200,32 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_3);
 
+        horizontalLayout_15 = new QHBoxLayout();
+        horizontalLayout_15->setSpacing(6);
+        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
+        lbl_text = new QLabel(SettingsWindow);
+        lbl_text->setObjectName(QStringLiteral("lbl_text"));
+        lbl_text->setFont(font);
 
-        verticalLayout_6->addLayout(verticalLayout_2);
+        horizontalLayout_15->addWidget(lbl_text);
+
+        checkCsv = new QCheckBox(SettingsWindow);
+        checkCsv->setObjectName(QStringLiteral("checkCsv"));
+
+        horizontalLayout_15->addWidget(checkCsv);
+
+        boxCsv = new QLineEdit(SettingsWindow);
+        boxCsv->setObjectName(QStringLiteral("boxCsv"));
+        boxCsv->setToolTipDuration(5);
+
+        horizontalLayout_15->addWidget(boxCsv);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_15);
 
         verticalSpacer_2 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_6->addItem(verticalSpacer_2);
+        verticalLayout_2->addItem(verticalSpacer_2);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
@@ -245,11 +265,11 @@ public:
         verticalLayout_3->addLayout(horizontalLayout_5);
 
 
-        verticalLayout_6->addLayout(verticalLayout_3);
+        verticalLayout_2->addLayout(verticalLayout_3);
 
         verticalSpacer_3 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_6->addItem(verticalSpacer_3);
+        verticalLayout_2->addItem(verticalSpacer_3);
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setSpacing(6);
@@ -310,18 +330,18 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_12);
 
 
-        verticalLayout_6->addLayout(verticalLayout_4);
+        verticalLayout_2->addLayout(verticalLayout_4);
 
         verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_6->addItem(verticalSpacer_5);
+        verticalLayout_2->addItem(verticalSpacer_5);
 
 
-        horizontalLayout_15->addLayout(verticalLayout_6);
+        horizontalLayout_16->addLayout(verticalLayout_2);
 
         horizontalSpacer = new QSpacerItem(141, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_15->addItem(horizontalSpacer);
+        horizontalLayout_16->addItem(horizontalSpacer);
 
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setSpacing(6);
@@ -425,7 +445,7 @@ public:
         verticalLayout_7->addLayout(horizontalLayout_14);
 
 
-        horizontalLayout_15->addLayout(verticalLayout_7);
+        horizontalLayout_16->addLayout(verticalLayout_7);
 
         QWidget::setTabOrder(boxGridX, boxGridY);
         QWidget::setTabOrder(boxGridY, checkLoad);
@@ -465,6 +485,11 @@ public:
         checkSave->setText(QString());
 #ifndef QT_NO_TOOLTIP
         boxSave->setToolTip(QApplication::translate("SettingsWindow", "<Return>", nullptr));
+#endif // QT_NO_TOOLTIP
+        lbl_text->setText(QApplication::translate("SettingsWindow", "CSV", nullptr));
+        checkCsv->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        boxCsv->setToolTip(QApplication::translate("SettingsWindow", "<Return>", nullptr));
 #endif // QT_NO_TOOLTIP
         label_5->setText(QApplication::translate("SettingsWindow", "log", nullptr));
         checkLog->setText(QString());

@@ -136,4 +136,7 @@ void starveMsg(int start, int *bunnyCount, Ui_BunnyWindowClass *ui, QListWidgetI
 /*if --save, print all bunnies with attributes to file for later --load*/
 void saveGame(FILE *savedGame, int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]);
 
+/*logs all important stats to a csv file, for later visualisation in 3rd party programms*/
+void logGame(FILE *csvName, Ui_BunnyWindowClass *ui);
+
 #endif

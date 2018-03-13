@@ -75,7 +75,9 @@ int game(PargList argStruct) {
 
 	char *noLog = (argStruct->noLog), *log = (argStruct->log);		//arg for logfile
 	char *save = (argStruct->save), *load = (argStruct->load);		//save the game, or load it
+	char *csv = (argStruct->csv);
 	char *fileName = argStruct->fileName;//= "game01.save"; fileName[128]
+	char *csvName = argStruct->csvName;
 	//end #defines
 	//------------------------------------
 	//other variables
@@ -152,8 +154,10 @@ int game(PargList argStruct) {
 
 	threadStruct->cycles = cycles;
 	threadStruct->fileName = fileName;
+	threadStruct->csvName = csvName;
 
 	threadStruct->save = save;
+	threadStruct->csv = csv;
 	threadStruct->noLog = noLog;
 	threadStruct->log = log;
 	threadStruct->max_hunger = max_hunger;

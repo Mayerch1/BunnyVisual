@@ -36,8 +36,9 @@ typedef struct threadData {
 
 	unsigned int *cycles;
 	char *fileName;
+	char *csvName;
 
-	char *save;
+	char *save, *csv;
 	char *noLog;
 	char *log;
 	int *max_hunger;
@@ -64,9 +65,10 @@ typedef struct argList {
 	char *log, *noLog;
 	unsigned int *start_Bunnies;
 	unsigned int *sleep_time;
-	char *save, *load;
+	char *save, *load, *csv;
 	int *food_duration;
 	char *fileName;
+	char *csvName;
 	int file_len;
 }argList, *PargList;
 

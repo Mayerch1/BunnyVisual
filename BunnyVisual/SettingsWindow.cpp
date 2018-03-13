@@ -80,6 +80,15 @@ void SettingsWindow::on_checkNoLog_stateChanged(int i) {
 	}
 }
 
+void SettingsWindow::on_checkCsv_stateChanged(int i) {
+	if (i == 2) {
+		*setStruct->csv = 1;
+	}
+	else {
+		*setStruct->csv = 0;
+	}
+}
+
 void SettingsWindow::on_boxSave_returnPressed() {
 	QString strPath = ui.boxSave->text();
 	QByteArray byteArr = strPath.toLatin1();
@@ -87,6 +96,8 @@ void SettingsWindow::on_boxSave_returnPressed() {
 
 	strcpy(setStruct->fileName, tmpFile);
 	ui.boxLoad->setText(strPath);
+
+	ui.checkSave->setChecked(1);
 }
 
 void SettingsWindow::on_boxLoad_returnPressed() {
@@ -96,12 +107,24 @@ void SettingsWindow::on_boxLoad_returnPressed() {
 
 	strcpy(setStruct->fileName, tmpFile);
 	ui.boxSave->setText(strPath);
+
+	ui.checkLoad->setChecked(1);
+}
+
+void SettingsWindow::on_boxCsv_returnPressed() {
+	QString strPath = ui.boxCsv->text();
+	QByteArray byteArr = strPath.toLatin1();
+	char *tmpFile = byteArr.data();
+	strcpy(setStruct->csvName, tmpFile);
+
+	ui.checkCsv->setChecked(1);
 }
 
 void SettingsWindow::get_args(PargList argStruct) {
 	setStruct = argStruct;
 
 	std::string strPath = argStruct->fileName;
+	std::string csvPath = argStruct->csvName;
 
 	ui.boxGridX->setValue(gridX);
 	ui.boxGridY->setValue(gridY);
@@ -117,9 +140,11 @@ void SettingsWindow::get_args(PargList argStruct) {
 
 	ui.boxLoad->setText(QString::fromStdString(strPath));
 	ui.boxSave->setText(QString::fromStdString(strPath));
+	ui.boxCsv->setText(QString::fromStdString(csvPath));
 
 	ui.checkLoad->setChecked(*argStruct->load);
 	ui.checkSave->setChecked(*argStruct->save);
+	ui.checkCsv->setChecked(*argStruct->csv);
 
 	ui.checkLog->setChecked(*argStruct->log);
 	ui.checkNoLog->setChecked(*argStruct->noLog);
