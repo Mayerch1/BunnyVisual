@@ -96,7 +96,8 @@ int game(PargList argStruct) {
 	//------------------------------------
 	//thread related stuff
 	DWORD printId, turnId;
-	HANDLE printHandle, turnHandle;
+	HANDLE *turnHandle = argStruct->turnHandle;
+	HANDLE *printHandle = argStruct->printHandle;
 
 	PthreadData threadStruct = NULL;
 
@@ -168,16 +169,16 @@ int game(PargList argStruct) {
 	threadStruct->msgList = msgList;
 
 	/*create all threats*/
-	printHandle = CreateThread(NULL, 0, printThread, threadStruct, CREATE_SUSPENDED, &printId);
-	turnHandle = CreateThread(NULL, 0, turnThread, threadStruct, CREATE_SUSPENDED, &turnId);
+	*printHandle = CreateThread(NULL, 0, printThread, threadStruct, CREATE_SUSPENDED, &printId);
+	*turnHandle = CreateThread(NULL, 0, turnThread, threadStruct, CREATE_SUSPENDED, &turnId);
 
-	ResumeThread(turnHandle);
+	ResumeThread(*turnHandle);
 	Sleep(2 * (*sleep_time));
-	ResumeThread(printHandle);
+	ResumeThread(*printHandle);
 
 	msgList[debug]->setText("All threads startet");
 
-	while (WaitForSingleObject(turnHandle, 1000) == WAIT_TIMEOUT) {
+	while (WaitForSingleObject(*turnHandle, 1000) == WAIT_TIMEOUT) {
 		//this keeps main open, until thread exits with 0
 		//checks every 1000ms
 	}
@@ -185,11 +186,11 @@ int game(PargList argStruct) {
 	//end loop
 	//-----------------------------------------------------------------------------------------------
 
-	TerminateThread(printHandle, 0);
-	TerminateThread(turnHandle, 0);
+	TerminateThread(*printHandle, 0);
+	TerminateThread(*turnHandle, 0);
 
-	CloseHandle(printHandle);
-	CloseHandle(turnHandle);
+	CloseHandle(*printHandle);
+	CloseHandle(*turnHandle);
 	msgList[debug]->setText("All handles closed");
 
 	DeleteCriticalSection(&g_fprint);

@@ -1,4 +1,5 @@
 #include "ui_BunnyWindow.h"
+#include "Windows.h"
 
 #pragma once
 #define NAME_LEN 128
@@ -51,6 +52,8 @@ typedef struct threadData {
 typedef struct argList {
 	Ui::BunnyWindowClass *ui;
 	QListWidgetItem **msgList;
+
+	HANDLE *turnHandle, *printHandle;
 
 	bunny **anchor;
 	Point *food;

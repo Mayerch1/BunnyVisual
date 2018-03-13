@@ -16,5 +16,5 @@ For the save and load function watch the documentation at [SaveDoc.md](SaveDoc.m
 DISCLAIMER: <br />
 All names of the bunnies are unrelated to any real person, and are not chosen by possible associations with real people or other groups/organisations.<br />
 
-The (not yet implemented) [Icon](/BunnyVisual/Resources/rabbit.ico) is taken from [FastIcon](http://fasticon.com/).<br />
+The [Icon](/BunnyVisual/Resources/rabbit.ico) is taken from [FastIcon](http://fasticon.com/).<br />
 According to Qt terms, this is published under [(L)GPL](LICENSE).<br />

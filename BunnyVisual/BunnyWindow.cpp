@@ -22,8 +22,8 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+
 	ui.btnStart->setText("Start");
-	setWindowIcon(QIcon("/Resources/Rabbit.ico"));
 
 	settings = new SettingsWindow();
 
@@ -32,9 +32,13 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	InitializeCriticalSection(&g_fprint);
 	InitializeCriticalSection(&g_bunny);
 
+	//TODO: here
 	//give argStruct into settings form
 	argStruct = (PargList)malloc(sizeof(argList));
 	argStruct->ui = &ui;
+	argStruct->turnHandle = &turnHandle;
+	argStruct->printHandle = &printHandle;
+
 	argStruct->fileName = fileName;
 	argStruct->csvName = csvName;
 	argStruct->save = &save;
@@ -259,6 +263,15 @@ void BunnyWindow::on_btnStart_clicked() {
 	if ("Stop" == ui.btnStart->text().toStdString()) {
 		ui.btnStart->setText("Computer says no");
 		ui.btnStart->setEnabled(false);
+
+		/*ui.btnStart->setText("Resume");
+		SuspendThread(turnHandle);
+		SuspendThread(printHandle);	*/
+	}
+	else if ("Resume" == ui.btnStart->text().toStdString()) {
+		ui.btnStart->setText("Stop");
+		ResumeThread(turnHandle);
+		ResumeThread(printHandle);
 	}
 	else {
 		ui.btnStart->setText("Stop");

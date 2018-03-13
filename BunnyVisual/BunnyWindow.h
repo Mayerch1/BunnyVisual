@@ -19,6 +19,7 @@ public:
 	~BunnyWindow();
 
 	PargList argStruct;
+	HANDLE printHandle, turnHandle;
 
 	//PdisplayList displayStruct;
 
