@@ -11,6 +11,8 @@
 CRITICAL_SECTION g_fprint;
 CRITICAL_SECTION g_bunny;
 
+//ALPHA: Donate button
+
 typedef struct displayList {
 	BunnyWindow *that;
 	unsigned int *cycles;
@@ -32,7 +34,6 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 	InitializeCriticalSection(&g_fprint);
 	InitializeCriticalSection(&g_bunny);
 
-	//TODO: here
 	//give argStruct into settings form
 	argStruct = (PargList)malloc(sizeof(argList));
 	argStruct->ui = &ui;
@@ -258,15 +259,10 @@ void BunnyWindow::on_btnStart_clicked() {
 
 	PdisplayList displayStruct;
 
-	//	settings.ui->boxGridX->setEnabled(false);
-	//BETA: stop button
 	if ("Stop" == ui.btnStart->text().toStdString()) {
-		ui.btnStart->setText("Computer says no");
-		ui.btnStart->setEnabled(false);
-
-		/*ui.btnStart->setText("Resume");
+		ui.btnStart->setText("Resume");
 		SuspendThread(turnHandle);
-		SuspendThread(printHandle);	*/
+		SuspendThread(printHandle);
 	}
 	else if ("Resume" == ui.btnStart->text().toStdString()) {
 		ui.btnStart->setText("Stop");
@@ -432,6 +428,6 @@ void BunnyWindow::initCsv() {
 		fprintf(stderr, "Could not write to log file.\n");
 		return;
 	}
-	fprintf(csvFile, "Cycles,BunnyCount,InfectRate,FeedRate,MoveRate,StarveRate,MassDeath\n");
+	fprintf(csvFile, "Cycles,BunnyCount,BirthRate,InfectRate,FeedRate,MoveRate,StarveRate,MassDeath\n");
 	fclose(csvFile);
 }

@@ -20,6 +20,7 @@
 *.userprefs
 
 # Build results
+GeneratedFiles
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]eleases/

@@ -6,6 +6,7 @@ extern int gridX, gridY;
 void reproduce(bunny **anchor, int *bunnyCount, Point food[], Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {
 	int maleCount = 0;
 	int femaleCount = 0;
+	int birthRate = 0;
 	bunny *p;
 
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
@@ -20,9 +21,14 @@ void reproduce(bunny **anchor, int *bunnyCount, Point food[], Ui_BunnyWindowClas
 	//create new bunny for each female
 	for (p = *anchor; p != NULL; p = (bunny*)p->next) {
 		if (p->sex == female && p->age >= 2 && p->radioactive_mutant_vampire_bunny == 0) {
-			bunny_append(*anchor, createBunny(*anchor, rand() % 2, p->color, 0, NULL, -1, bunnyCount, p->coord, food, ui, msgList));
+			bunny *born = createBunny(*anchor, rand() % 2, p->color, 0, NULL, -1, bunnyCount, p->coord, food, ui, msgList);
+			if (born != NULL) {
+				bunny_append(*anchor, born);
+				birthRate++;
+			}
 		}
 	}
+	ui->lblBirthRate->setText(QString::number(birthRate));
 }//end reproduce
 
 void feedBunnies(bunny **anchor, Point food[], int foodCount, int foodDur[], int *bunnyCount, int food_duration, Ui_BunnyWindowClass *ui, QListWidgetItem **msgList) {

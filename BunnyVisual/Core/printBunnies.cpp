@@ -177,7 +177,7 @@ void logGame(FILE *csvName, Ui_BunnyWindowClass *ui) {
 
 	if (csvName == NULL)
 		return;
-	fprintf(csvName, "%d,%d,%d,%d,%d,%d", ui->lblCycles->text().toInt(), ui->blbBunnyCount->text().toInt(), ui->lblInfectRate->text().toInt(),
+	fprintf(csvName, "%d,%d,%d,%d,%d,%d,%d", ui->lblCycles->text().toInt(), ui->blbBunnyCount->text().toInt(), ui->lblBirthRate->text().toInt(), ui->lblInfectRate->text().toInt(),
 		ui->lblFeedRate->text().toInt(), ui->lblMoveRate->text().toInt(), ui->lblStarveRate->text().toInt());
 
 	if (ui->lblFamineRate->text().toInt() != famineRate) {

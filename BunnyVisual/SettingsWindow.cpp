@@ -5,6 +5,10 @@ SettingsWindow::SettingsWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	//QPixmap pixmap("Resource/Paypal.png");
+	//QIcon ButtonIcon(pixmap);
+	//btnDonate.setIcon(ButtonIcon);
+	////button->setIconSize(pixmap.rect().size());
 }
 
 SettingsWindow::~SettingsWindow()
@@ -94,7 +98,8 @@ void SettingsWindow::on_boxSave_returnPressed() {
 	QByteArray byteArr = strPath.toLatin1();
 	char *tmpFile = byteArr.data();
 
-	strcpy(setStruct->fileName, tmpFile);
+	strncpy(setStruct->fileName, tmpFile, NAME_LEN - 1);
+	setStruct->fileName[NAME_LEN - 1] = '\0';
 	ui.boxLoad->setText(strPath);
 
 	ui.checkSave->setChecked(1);
@@ -105,7 +110,8 @@ void SettingsWindow::on_boxLoad_returnPressed() {
 	QByteArray byteArr = strPath.toLatin1();
 	char *tmpFile = byteArr.data();
 
-	strcpy(setStruct->fileName, tmpFile);
+	strncpy(setStruct->fileName, tmpFile, NAME_LEN - 1);
+	setStruct->fileName[NAME_LEN - 1] = '\0';
 	ui.boxSave->setText(strPath);
 
 	ui.checkLoad->setChecked(1);
@@ -115,9 +121,14 @@ void SettingsWindow::on_boxCsv_returnPressed() {
 	QString strPath = ui.boxCsv->text();
 	QByteArray byteArr = strPath.toLatin1();
 	char *tmpFile = byteArr.data();
-	strcpy(setStruct->csvName, tmpFile);
+	strncpy(setStruct->csvName, tmpFile, NAME_LEN - 1);
+	setStruct->fileName[NAME_LEN - 1] = '\0';
 
 	ui.checkCsv->setChecked(1);
+}
+
+void SettingsWindow::on_btnDonate_clicked() {
+	ShellExecute(0, 0, L"https://www.paypal.me/CJMayer/1,20", 0, 0, SW_SHOW);
 }
 
 void SettingsWindow::get_args(PargList argStruct) {

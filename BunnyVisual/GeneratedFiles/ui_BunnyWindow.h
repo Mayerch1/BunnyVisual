@@ -56,6 +56,10 @@ public:
     QLabel *lbl_text;
     QLabel *blbBunnyCount;
     QSpacerItem *horizontalSpacer_4;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *label_2;
+    QLabel *lblBirthRate;
+    QSpacerItem *horizontalSpacer_10;
     QHBoxLayout *horizontalLayout_6;
     QLabel *lbl_text_3;
     QLabel *lblInfectRate;
@@ -77,9 +81,8 @@ public:
     QLabel *lblFamineRate;
     QSpacerItem *horizontalSpacer_9;
     QSpacerItem *verticalSpacer_3;
-    QHBoxLayout *horizontalLayout_10;
-    QLineEdit *boxSnapshot;
     QPushButton *btnSnapshot;
+    QLineEdit *boxSnapshot;
     QSpacerItem *verticalSpacer_4;
     QMenuBar *menuBar;
 
@@ -87,12 +90,13 @@ public:
     {
         if (BunnyWindowClass->objectName().isEmpty())
             BunnyWindowClass->setObjectName(QStringLiteral("BunnyWindowClass"));
-        BunnyWindowClass->resize(1174, 749);
-        BunnyWindowClass->setMinimumSize(QSize(836, 400));
+        BunnyWindowClass->resize(1216, 819);
+        BunnyWindowClass->setMinimumSize(QSize(836, 430));
         BunnyWindowClass->setMaximumSize(QSize(16777215, 16777215));
         BunnyWindowClass->setTabShape(QTabWidget::Rounded);
         centralWidget = new QWidget(BunnyWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setMinimumSize(QSize(0, 0));
         horizontalLayout_11 = new QHBoxLayout(centralWidget);
         horizontalLayout_11->setSpacing(6);
         horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
@@ -242,6 +246,30 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_5);
 
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setSpacing(6);
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        sizePolicy3.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy3);
+
+        horizontalLayout_10->addWidget(label_2);
+
+        lblBirthRate = new QLabel(centralWidget);
+        lblBirthRate->setObjectName(QStringLiteral("lblBirthRate"));
+        sizePolicy3.setHeightForWidth(lblBirthRate->sizePolicy().hasHeightForWidth());
+        lblBirthRate->setSizePolicy(sizePolicy3);
+
+        horizontalLayout_10->addWidget(lblBirthRate);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+
+        horizontalLayout_10->addItem(horizontalSpacer_10);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_10);
+
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
@@ -366,28 +394,22 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer_3);
 
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setSpacing(6);
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        boxSnapshot = new QLineEdit(centralWidget);
-        boxSnapshot->setObjectName(QStringLiteral("boxSnapshot"));
+        btnSnapshot = new QPushButton(centralWidget);
+        btnSnapshot->setObjectName(QStringLiteral("btnSnapshot"));
         QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(boxSnapshot->sizePolicy().hasHeightForWidth());
-        boxSnapshot->setSizePolicy(sizePolicy4);
-
-        horizontalLayout_10->addWidget(boxSnapshot);
-
-        btnSnapshot = new QPushButton(centralWidget);
-        btnSnapshot->setObjectName(QStringLiteral("btnSnapshot"));
         sizePolicy4.setHeightForWidth(btnSnapshot->sizePolicy().hasHeightForWidth());
         btnSnapshot->setSizePolicy(sizePolicy4);
 
-        horizontalLayout_10->addWidget(btnSnapshot);
+        verticalLayout_2->addWidget(btnSnapshot);
 
+        boxSnapshot = new QLineEdit(centralWidget);
+        boxSnapshot->setObjectName(QStringLiteral("boxSnapshot"));
+        sizePolicy4.setHeightForWidth(boxSnapshot->sizePolicy().hasHeightForWidth());
+        boxSnapshot->setSizePolicy(sizePolicy4);
 
-        verticalLayout_2->addLayout(horizontalLayout_10);
+        verticalLayout_2->addWidget(boxSnapshot);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -399,7 +421,7 @@ public:
         BunnyWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(BunnyWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1174, 21));
+        menuBar->setGeometry(QRect(0, 0, 1216, 21));
         BunnyWindowClass->setMenuBar(menuBar);
 
         retranslateUi(BunnyWindowClass);
@@ -414,21 +436,23 @@ public:
         btnStart->setText(QApplication::translate("BunnyWindowClass", "Computer says no", nullptr));
         btnSettings->setText(QApplication::translate("BunnyWindowClass", "Settings", nullptr));
         lbl_text_2->setText(QApplication::translate("BunnyWindowClass", "Cycle nr.:", nullptr));
-        lblCycles->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        lblCycles->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         lbl_text->setText(QApplication::translate("BunnyWindowClass", "Bunnies alive:", nullptr));
-        blbBunnyCount->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        blbBunnyCount->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
+        label_2->setText(QApplication::translate("BunnyWindowClass", "Birth Rate:", nullptr));
+        lblBirthRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         lbl_text_3->setText(QApplication::translate("BunnyWindowClass", "Infect Rate", nullptr));
-        lblInfectRate->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        lblInfectRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         lbl_text_4->setText(QApplication::translate("BunnyWindowClass", "Feed Rate", nullptr));
-        lblFeedRate->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        lblFeedRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         lbl_text_5->setText(QApplication::translate("BunnyWindowClass", "Move Rate", nullptr));
-        lblMoveRate->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        lblMoveRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         lbl_text_6->setText(QApplication::translate("BunnyWindowClass", "Starve Rate", nullptr));
-        lblStarveRate->setText(QApplication::translate("BunnyWindowClass", "N/A", nullptr));
+        lblStarveRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
         label->setText(QApplication::translate("BunnyWindowClass", "Mystery Number", nullptr));
         lblFamineRate->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));
-        boxSnapshot->setText(QApplication::translate("BunnyWindowClass", "Snapshot_001.save", nullptr));
         btnSnapshot->setText(QApplication::translate("BunnyWindowClass", "Save", nullptr));
+        boxSnapshot->setText(QApplication::translate("BunnyWindowClass", "Snapshot_001.save", nullptr));
     } // retranslateUi
 
 };

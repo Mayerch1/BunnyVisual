@@ -113,6 +113,9 @@
     <Image Include="Resources\rabbit.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\Paypal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BunnyWindow.rc">

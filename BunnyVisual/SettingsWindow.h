@@ -40,5 +40,7 @@ public:
 	void on_boxLoad_returnPressed();
 	void on_boxCsv_returnPressed();
 
+	void on_btnDonate_clicked();
+
 private:
 };

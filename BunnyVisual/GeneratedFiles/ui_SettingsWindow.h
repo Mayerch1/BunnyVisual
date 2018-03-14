@@ -29,7 +29,7 @@ QT_BEGIN_NAMESPACE
 class Ui_SettingsWindow
 {
 public:
-    QHBoxLayout *horizontalLayout_16;
+    QHBoxLayout *horizontalLayout_17;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -72,7 +72,7 @@ public:
     QSpinBox *boxFoodDuration;
     QSpacerItem *verticalSpacer_5;
     QSpacerItem *horizontalSpacer;
-    QVBoxLayout *verticalLayout_7;
+    QVBoxLayout *verticalLayout_6;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_8;
@@ -86,6 +86,11 @@ public:
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_13;
     QSpinBox *boxMaxHunger;
+    QSpacerItem *verticalSpacer_6;
+    QHBoxLayout *horizontalLayout_16;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *btnDonate;
+    QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer_4;
     QHBoxLayout *horizontalLayout_14;
     QSpacerItem *horizontalSpacer_2;
@@ -95,11 +100,11 @@ public:
     {
         if (SettingsWindow->objectName().isEmpty())
             SettingsWindow->setObjectName(QStringLiteral("SettingsWindow"));
-        SettingsWindow->resize(549, 422);
-        horizontalLayout_16 = new QHBoxLayout(SettingsWindow);
-        horizontalLayout_16->setSpacing(6);
-        horizontalLayout_16->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        SettingsWindow->resize(738, 550);
+        horizontalLayout_17 = new QHBoxLayout(SettingsWindow);
+        horizontalLayout_17->setSpacing(6);
+        horizontalLayout_17->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -337,15 +342,15 @@ public:
         verticalLayout_2->addItem(verticalSpacer_5);
 
 
-        horizontalLayout_16->addLayout(verticalLayout_2);
+        horizontalLayout_17->addLayout(verticalLayout_2);
 
         horizontalSpacer = new QSpacerItem(141, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_16->addItem(horizontalSpacer);
+        horizontalLayout_17->addItem(horizontalSpacer);
 
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
@@ -423,11 +428,45 @@ public:
         verticalLayout_5->addLayout(horizontalLayout_13);
 
 
-        verticalLayout_7->addLayout(verticalLayout_5);
+        verticalLayout_6->addLayout(verticalLayout_5);
 
-        verticalSpacer_4 = new QSpacerItem(20, 188, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_6 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_7->addItem(verticalSpacer_4);
+        verticalLayout_6->addItem(verticalSpacer_6);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_3);
+
+        btnDonate = new QPushButton(SettingsWindow);
+        btnDonate->setObjectName(QStringLiteral("btnDonate"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(btnDonate->sizePolicy().hasHeightForWidth());
+        btnDonate->setSizePolicy(sizePolicy);
+        btnDonate->setMinimumSize(QSize(50, 50));
+        btnDonate->setMaximumSize(QSize(50, 50));
+        QIcon icon;
+        icon.addFile(QStringLiteral("Resources/Paypal.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDonate->setIcon(icon);
+        btnDonate->setIconSize(QSize(50, 50));
+
+        horizontalLayout_16->addWidget(btnDonate);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_4);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_16);
+
+        verticalSpacer_4 = new QSpacerItem(20, 158, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_6->addItem(verticalSpacer_4);
 
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setSpacing(6);
@@ -438,14 +477,19 @@ public:
 
         btnExit = new QPushButton(SettingsWindow);
         btnExit->setObjectName(QStringLiteral("btnExit"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(btnExit->sizePolicy().hasHeightForWidth());
+        btnExit->setSizePolicy(sizePolicy1);
 
         horizontalLayout_14->addWidget(btnExit);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_14);
+        verticalLayout_6->addLayout(horizontalLayout_14);
 
 
-        horizontalLayout_16->addLayout(verticalLayout_7);
+        horizontalLayout_17->addLayout(verticalLayout_6);
 
         QWidget::setTabOrder(boxGridX, boxGridY);
         QWidget::setTabOrder(boxGridY, checkLoad);
@@ -505,6 +549,7 @@ public:
         label_11->setText(QApplication::translate("SettingsWindow", "sleep_time", nullptr));
         boxSleepTime->setSuffix(QApplication::translate("SettingsWindow", " ms", nullptr));
         label_13->setText(QApplication::translate("SettingsWindow", "maxHunger", nullptr));
+        btnDonate->setText(QString());
         btnExit->setText(QApplication::translate("SettingsWindow", "Exit", nullptr));
     } // retranslateUi
 

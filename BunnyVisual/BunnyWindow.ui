@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1174</width>
-    <height>749</height>
+    <width>1216</width>
+    <height>819</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>836</width>
-    <height>400</height>
+    <height>430</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -29,6 +29,12 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
    <layout class="QHBoxLayout" name="horizontalLayout_11">
     <item>
      <widget class="QFrame" name="RenderArea">
@@ -241,7 +247,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -287,12 +293,58 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Birth Rate:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblBirthRate">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_10">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -333,7 +385,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -379,7 +431,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -425,7 +477,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -471,7 +523,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>N/A</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
@@ -553,34 +605,30 @@
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
-        <item>
-         <widget class="QLineEdit" name="boxSnapshot">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Snapshot_001.save</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnSnapshot">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Save</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <widget class="QPushButton" name="btnSnapshot">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="boxSnapshot">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Snapshot_001.save</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="verticalSpacer_4">
@@ -604,7 +652,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1174</width>
+     <width>1216</width>
      <height>21</height>
     </rect>
    </property>
