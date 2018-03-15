@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>SettingsWindow</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_17">
+  <layout class="QHBoxLayout" name="horizontalLayout_18">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
@@ -116,10 +116,29 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="btnChooseLoad">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_17">
        <item>
         <widget class="QLabel" name="label_4">
          <property name="font">
@@ -158,35 +177,39 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_15">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="lbl_text">
-         <property name="font">
-          <font>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>CSV</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkCsv">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="boxCsv">
-         <property name="toolTip">
-          <string>&lt;Return&gt;</string>
-         </property>
-         <property name="toolTipDuration">
-          <number>5</number>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
+         <item>
+          <widget class="QLabel" name="lbl_text">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>CSV</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkCsv">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="boxCsv">
+           <property name="toolTip">
+            <string>&lt;Return&gt;</string>
+           </property>
+           <property name="toolTipDuration">
+            <number>5</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -215,7 +238,7 @@
             </font>
            </property>
            <property name="text">
-            <string>log</string>
+            <string>DetailedLog</string>
            </property>
           </widget>
          </item>
@@ -530,10 +553,6 @@
          </property>
          <property name="text">
           <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>Resources/Paypal.png</normaloff>Resources/Paypal.png</iconset>
          </property>
          <property name="iconSize">
           <size>

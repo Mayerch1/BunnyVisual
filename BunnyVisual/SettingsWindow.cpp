@@ -1,10 +1,15 @@
 #include "SettingsWindow.h"
 #include "BunnyWindow.h"
 
+#include <QFileDialog>
+
 SettingsWindow::SettingsWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	ui.btnDonate->setIcon(QIcon("Resources/paypal.ico"));
+	ui.btnDonate->setIconSize(ui.btnDonate->size());
+
 	//QPixmap pixmap("Resource/Paypal.png");
 	//QIcon ButtonIcon(pixmap);
 	//btnDonate.setIcon(ButtonIcon);
@@ -126,6 +131,27 @@ void SettingsWindow::on_boxCsv_returnPressed() {
 
 	ui.checkCsv->setChecked(1);
 }
+
+void SettingsWindow::on_btnChooseLoad_clicked() {
+	QString strPath = QFileDialog::getOpenFileName(this,
+		tr("Locate your savegame"), QDir::currentPath(), tr("Saved games (*.save);;All Files (*.*)"));
+	ui.boxLoad->setText(strPath);
+	ui.boxLoad->returnPressed();
+}
+
+//void SettingsWindow::on_btnChooseSave_clicked() {
+//	QString strPath = QFileDialog::getOpenFileName(this,
+//		tr("Choose/Create a File"), "C://", tr("Saved games (*.game);;All Files (*.*)"));
+//	ui.boxSave->setText(strPath);
+//	ui.boxSave->returnPressed();
+//}
+//
+//void SettingsWindow::on_btnChooseCsv_clicked() {
+//	QString strPath = QFileDialog::getOpenFileName(this,
+//		tr("Choose/Create a File"), "C://", tr("Textfiles (*.txt *.csv);;All Files (*.*)"));
+//	ui.boxCsv->setText(strPath);
+//	ui.boxCsv->returnPressed();
+//}
 
 void SettingsWindow::on_btnDonate_clicked() {
 	ShellExecute(0, 0, L"https://www.paypal.me/CJMayer/1,20", 0, 0, SW_SHOW);

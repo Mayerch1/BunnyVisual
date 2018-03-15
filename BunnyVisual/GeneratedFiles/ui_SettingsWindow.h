@@ -29,7 +29,7 @@ QT_BEGIN_NAMESPACE
 class Ui_SettingsWindow
 {
 public:
-    QHBoxLayout *horizontalLayout_17;
+    QHBoxLayout *horizontalLayout_18;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
@@ -43,10 +43,12 @@ public:
     QLabel *label_3;
     QCheckBox *checkLoad;
     QLineEdit *boxLoad;
-    QHBoxLayout *horizontalLayout_3;
+    QPushButton *btnChooseLoad;
+    QHBoxLayout *horizontalLayout_17;
     QLabel *label_4;
     QCheckBox *checkSave;
     QLineEdit *boxSave;
+    QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *horizontalLayout_15;
     QLabel *lbl_text;
     QCheckBox *checkCsv;
@@ -101,10 +103,10 @@ public:
         if (SettingsWindow->objectName().isEmpty())
             SettingsWindow->setObjectName(QStringLiteral("SettingsWindow"));
         SettingsWindow->resize(738, 550);
-        horizontalLayout_17 = new QHBoxLayout(SettingsWindow);
-        horizontalLayout_17->setSpacing(6);
-        horizontalLayout_17->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
+        horizontalLayout_18 = new QHBoxLayout(SettingsWindow);
+        horizontalLayout_18->setSpacing(6);
+        horizontalLayout_18->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -178,33 +180,47 @@ public:
 
         horizontalLayout_4->addWidget(boxLoad);
 
+        btnChooseLoad = new QPushButton(SettingsWindow);
+        btnChooseLoad->setObjectName(QStringLiteral("btnChooseLoad"));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(btnChooseLoad->sizePolicy().hasHeightForWidth());
+        btnChooseLoad->setSizePolicy(sizePolicy);
+        btnChooseLoad->setMaximumSize(QSize(23, 23));
+
+        horizontalLayout_4->addWidget(btnChooseLoad);
+
 
         verticalLayout_2->addLayout(horizontalLayout_4);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_17 = new QHBoxLayout();
+        horizontalLayout_17->setSpacing(6);
+        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
         label_4 = new QLabel(SettingsWindow);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setFont(font);
         label_4->setToolTipDuration(2);
 
-        horizontalLayout_3->addWidget(label_4);
+        horizontalLayout_17->addWidget(label_4);
 
         checkSave = new QCheckBox(SettingsWindow);
         checkSave->setObjectName(QStringLiteral("checkSave"));
 
-        horizontalLayout_3->addWidget(checkSave);
+        horizontalLayout_17->addWidget(checkSave);
 
         boxSave = new QLineEdit(SettingsWindow);
         boxSave->setObjectName(QStringLiteral("boxSave"));
         boxSave->setToolTipDuration(5);
 
-        horizontalLayout_3->addWidget(boxSave);
+        horizontalLayout_17->addWidget(boxSave);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout_2->addLayout(horizontalLayout_17);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_15 = new QHBoxLayout();
         horizontalLayout_15->setSpacing(6);
         horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
@@ -226,7 +242,10 @@ public:
         horizontalLayout_15->addWidget(boxCsv);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_15);
+        horizontalLayout_3->addLayout(horizontalLayout_15);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
 
         verticalSpacer_2 = new QSpacerItem(20, 17, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -342,11 +361,11 @@ public:
         verticalLayout_2->addItem(verticalSpacer_5);
 
 
-        horizontalLayout_17->addLayout(verticalLayout_2);
+        horizontalLayout_18->addLayout(verticalLayout_2);
 
         horizontalSpacer = new QSpacerItem(141, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_17->addItem(horizontalSpacer);
+        horizontalLayout_18->addItem(horizontalSpacer);
 
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setSpacing(6);
@@ -443,16 +462,10 @@ public:
 
         btnDonate = new QPushButton(SettingsWindow);
         btnDonate->setObjectName(QStringLiteral("btnDonate"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(btnDonate->sizePolicy().hasHeightForWidth());
         btnDonate->setSizePolicy(sizePolicy);
         btnDonate->setMinimumSize(QSize(50, 50));
         btnDonate->setMaximumSize(QSize(50, 50));
-        QIcon icon;
-        icon.addFile(QStringLiteral("Resources/Paypal.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDonate->setIcon(icon);
         btnDonate->setIconSize(QSize(50, 50));
 
         horizontalLayout_16->addWidget(btnDonate);
@@ -489,7 +502,7 @@ public:
         verticalLayout_6->addLayout(horizontalLayout_14);
 
 
-        horizontalLayout_17->addLayout(verticalLayout_6);
+        horizontalLayout_18->addLayout(verticalLayout_6);
 
         QWidget::setTabOrder(boxGridX, boxGridY);
         QWidget::setTabOrder(boxGridY, checkLoad);
@@ -522,6 +535,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         boxLoad->setToolTip(QApplication::translate("SettingsWindow", "<Return>", nullptr));
 #endif // QT_NO_TOOLTIP
+        btnChooseLoad->setText(QApplication::translate("SettingsWindow", "...", nullptr));
 #ifndef QT_NO_TOOLTIP
         label_4->setToolTip(QApplication::translate("SettingsWindow", "continuos save", nullptr));
 #endif // QT_NO_TOOLTIP
@@ -535,7 +549,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         boxCsv->setToolTip(QApplication::translate("SettingsWindow", "<Return>", nullptr));
 #endif // QT_NO_TOOLTIP
-        label_5->setText(QApplication::translate("SettingsWindow", "log", nullptr));
+        label_5->setText(QApplication::translate("SettingsWindow", "DetailedLog", nullptr));
         checkLog->setText(QString());
         label_6->setText(QApplication::translate("SettingsWindow", "noLog", nullptr));
         checkNoLog->setText(QString());

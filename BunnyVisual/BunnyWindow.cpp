@@ -25,8 +25,6 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	ui.btnStart->setText("Start");
-
 	settings = new SettingsWindow();
 
 	srand((unsigned int)time(NULL));

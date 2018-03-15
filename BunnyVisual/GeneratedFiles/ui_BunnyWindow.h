@@ -31,17 +31,13 @@ QT_BEGIN_NAMESPACE
 class Ui_BunnyWindowClass
 {
 public:
+    QAction *actionLoad;
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout_11;
+    QHBoxLayout *horizontalLayout_9;
     QFrame *RenderArea;
     QSpacerItem *horizontalSpacer_2;
-    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QListWidget *listMsg;
-    QHBoxLayout *horizontalLayout_9;
-    QSpacerItem *horizontalSpacer_11;
-    QPushButton *btnDetails;
-    QSpacerItem *horizontalSpacer_12;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnStart;
@@ -94,13 +90,15 @@ public:
         BunnyWindowClass->setMinimumSize(QSize(836, 430));
         BunnyWindowClass->setMaximumSize(QSize(16777215, 16777215));
         BunnyWindowClass->setTabShape(QTabWidget::Rounded);
+        actionLoad = new QAction(BunnyWindowClass);
+        actionLoad->setObjectName(QStringLiteral("actionLoad"));
         centralWidget = new QWidget(BunnyWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setMinimumSize(QSize(0, 0));
-        horizontalLayout_11 = new QHBoxLayout(centralWidget);
-        horizontalLayout_11->setSpacing(6);
-        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        horizontalLayout_9 = new QHBoxLayout(centralWidget);
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         RenderArea = new QFrame(centralWidget);
         RenderArea->setObjectName(QStringLiteral("RenderArea"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -112,15 +110,12 @@ public:
         RenderArea->setFrameShape(QFrame::StyledPanel);
         RenderArea->setFrameShadow(QFrame::Raised);
 
-        horizontalLayout_11->addWidget(RenderArea);
+        horizontalLayout_9->addWidget(RenderArea);
 
         horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        horizontalLayout_11->addItem(horizontalSpacer_2);
+        horizontalLayout_9->addItem(horizontalSpacer_2);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -136,42 +131,18 @@ public:
 
         verticalLayout->addWidget(listMsg);
 
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setSpacing(6);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_11);
-
-        btnDetails = new QPushButton(centralWidget);
-        btnDetails->setObjectName(QStringLiteral("btnDetails"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(btnDetails->sizePolicy().hasHeightForWidth());
-        btnDetails->setSizePolicy(sizePolicy2);
-
-        horizontalLayout_9->addWidget(btnDetails);
-
-        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_12);
-
-
-        verticalLayout->addLayout(horizontalLayout_9);
-
-
-        verticalLayout_2->addLayout(verticalLayout);
-
         verticalSpacer_2 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_2->addItem(verticalSpacer_2);
+        verticalLayout->addItem(verticalSpacer_2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         btnStart = new QPushButton(centralWidget);
         btnStart->setObjectName(QStringLiteral("btnStart"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(btnStart->sizePolicy().hasHeightForWidth());
         btnStart->setSizePolicy(sizePolicy2);
 
@@ -189,11 +160,11 @@ public:
         horizontalLayout->addWidget(btnSettings);
 
 
-        verticalLayout_2->addLayout(horizontalLayout);
+        verticalLayout->addLayout(horizontalLayout);
 
         verticalSpacer = new QSpacerItem(20, 18, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer);
+        verticalLayout->addItem(verticalSpacer);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
@@ -220,7 +191,7 @@ public:
         horizontalLayout_3->addItem(horizontalSpacer_3);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout->addLayout(horizontalLayout_3);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
@@ -244,7 +215,7 @@ public:
         horizontalLayout_5->addItem(horizontalSpacer_4);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_5);
+        verticalLayout->addLayout(horizontalLayout_5);
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setSpacing(6);
@@ -268,7 +239,7 @@ public:
         horizontalLayout_10->addItem(horizontalSpacer_10);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_10);
+        verticalLayout->addLayout(horizontalLayout_10);
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
@@ -292,7 +263,7 @@ public:
         horizontalLayout_6->addItem(horizontalSpacer_5);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_6);
+        verticalLayout->addLayout(horizontalLayout_6);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -316,7 +287,7 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer_6);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_2);
+        verticalLayout->addLayout(horizontalLayout_2);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
@@ -340,7 +311,7 @@ public:
         horizontalLayout_7->addItem(horizontalSpacer_7);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_7);
+        verticalLayout->addLayout(horizontalLayout_7);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
@@ -364,7 +335,7 @@ public:
         horizontalLayout_4->addItem(horizontalSpacer_8);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_4);
+        verticalLayout->addLayout(horizontalLayout_4);
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(6);
@@ -388,11 +359,11 @@ public:
         horizontalLayout_8->addItem(horizontalSpacer_9);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_8);
+        verticalLayout->addLayout(horizontalLayout_8);
 
         verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer_3);
+        verticalLayout->addItem(verticalSpacer_3);
 
         btnSnapshot = new QPushButton(centralWidget);
         btnSnapshot->setObjectName(QStringLiteral("btnSnapshot"));
@@ -402,21 +373,21 @@ public:
         sizePolicy4.setHeightForWidth(btnSnapshot->sizePolicy().hasHeightForWidth());
         btnSnapshot->setSizePolicy(sizePolicy4);
 
-        verticalLayout_2->addWidget(btnSnapshot);
+        verticalLayout->addWidget(btnSnapshot);
 
         boxSnapshot = new QLineEdit(centralWidget);
         boxSnapshot->setObjectName(QStringLiteral("boxSnapshot"));
         sizePolicy4.setHeightForWidth(boxSnapshot->sizePolicy().hasHeightForWidth());
         boxSnapshot->setSizePolicy(sizePolicy4);
 
-        verticalLayout_2->addWidget(boxSnapshot);
+        verticalLayout->addWidget(boxSnapshot);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer_4);
+        verticalLayout->addItem(verticalSpacer_4);
 
 
-        horizontalLayout_11->addLayout(verticalLayout_2);
+        horizontalLayout_9->addLayout(verticalLayout);
 
         BunnyWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(BunnyWindowClass);
@@ -432,8 +403,8 @@ public:
     void retranslateUi(QMainWindow *BunnyWindowClass)
     {
         BunnyWindowClass->setWindowTitle(QApplication::translate("BunnyWindowClass", "Bunny.exe", nullptr));
-        btnDetails->setText(QApplication::translate("BunnyWindowClass", "Details", nullptr));
-        btnStart->setText(QApplication::translate("BunnyWindowClass", "Computer says no", nullptr));
+        actionLoad->setText(QApplication::translate("BunnyWindowClass", "Load...", nullptr));
+        btnStart->setText(QApplication::translate("BunnyWindowClass", "Start", nullptr));
         btnSettings->setText(QApplication::translate("BunnyWindowClass", "Settings", nullptr));
         lbl_text_2->setText(QApplication::translate("BunnyWindowClass", "Cycle nr.:", nullptr));
         lblCycles->setText(QApplication::translate("BunnyWindowClass", "0", nullptr));

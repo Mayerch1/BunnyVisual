@@ -40,6 +40,10 @@ public:
 	void on_boxLoad_returnPressed();
 	void on_boxCsv_returnPressed();
 
+	void on_btnChooseLoad_clicked();
+	/*void on_btnChooseSave_clicked();
+	void on_btnChooseCsv_clicked();*/
+
 	void on_btnDonate_clicked();
 
 private:

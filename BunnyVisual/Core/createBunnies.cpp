@@ -36,7 +36,7 @@ void loadFood(int foodCount, Point food[], int foodDur[], char fileName[], int f
 	for (int i = 0; i < foodCount; i++) {
 		int tmpFood;
 		//scan x and y, ignore last to %*c
-		fscanf(loadGame, "{%d,%d,%*c%*c", &food[i].x, &food[i].y);
+		fscanf(loadGame, "{%d,%d,%*d,%*c%*c", &food[i].x, &food[i].y);
 		//BETA: load foodDur
 		foodDur[i] = food_duration;
 	}

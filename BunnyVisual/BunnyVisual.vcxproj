@@ -149,7 +149,7 @@
     <None Include="Resources\Qt5Widgets.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\Paypal.png" />
+    <Image Include="Resources\paypal.ico" />
     <Image Include="Resources\rabbit.ico" />
   </ItemGroup>
   <ItemGroup>
