@@ -11,8 +11,6 @@
 CRITICAL_SECTION g_fprint;
 CRITICAL_SECTION g_bunny;
 
-//ALPHA: Donate button
-
 typedef struct displayList {
 	BunnyWindow *that;
 	unsigned int *cycles;
@@ -71,7 +69,10 @@ BunnyWindow::BunnyWindow(QWidget *parent)
 BunnyWindow::~BunnyWindow() {
 	//if (food != NULL) free(food);
 	//if (foodDur != NULL) free(foodDur);
-
+	if (save == 1) {
+		saveGame(NULL, gridX, gridY, anchor, food, foodDur, foodCount, max_hunger, bunnyCount, fileName);
+		msgList[misc]->setText("Saved game");
+	}
 	DeleteCriticalSection(&g_bunny);
 }
 
@@ -261,6 +262,10 @@ void BunnyWindow::on_btnStart_clicked() {
 		ui.btnStart->setText("Resume");
 		SuspendThread(turnHandle);
 		SuspendThread(printHandle);
+		if (save == 1) {
+			saveGame(NULL, gridX, gridY, anchor, food, foodDur, foodCount, max_hunger, bunnyCount, fileName);
+			msgList[misc]->setText("Saved game");
+		}
 	}
 	else if ("Resume" == ui.btnStart->text().toStdString()) {
 		ui.btnStart->setText("Stop");

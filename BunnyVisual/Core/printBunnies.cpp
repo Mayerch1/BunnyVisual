@@ -131,17 +131,14 @@ void printInfo(bunny *anchor, int *bunnyCount, int cycles, char log) {
 }//end displayInfo
 
 void saveGame(FILE *savedGame, int gridX, int gridY, bunny *anchor, Point food[], int foodDur[], int foodCount, int max_hunger, int bunnyCount, char fileName[]) {
-	/*
-		{arg1,arg2,arg3};
-		{foodx,foody,food2,food3}
-
-		{sex,color,age,...}
-		{sex,color,age,...}
-		{sex,color,age,...};
-	*/
-	if (savedGame == NULL)
-		return;
-
+	if (savedGame == NULL) {
+		//try to open new file
+		if ((savedGame = fopen(fileName, "wb")) == NULL) {
+			fprintf(stderr, "Could not write to savefile\n");
+			return;
+		}
+	}
+	EnterCriticalSection(&g_bunny);
 	fprintf(savedGame, "!!Modify at your own risk, wrong values could lead to pointer access violation. Be careful with hidden nl and blancs!!\n");
 	//fundamental args
 	fprintf(savedGame, "{");
@@ -169,7 +166,8 @@ void saveGame(FILE *savedGame, int gridX, int gridY, bunny *anchor, Point food[]
 		fprintf(savedGame, "}\n");
 	}
 	//push and close stream
-	fflush(savedGame);
+	LeaveCriticalSection(&g_bunny);
+	fclose(savedGame);
 }//end saveGame
 
 void logGame(FILE *csvName, Ui_BunnyWindowClass *ui) {

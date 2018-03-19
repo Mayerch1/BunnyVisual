@@ -27,14 +27,7 @@ DWORD WINAPI printThread(LPVOID lpParam) {
 
 		printInfo(*(threadStruct->anchor), threadStruct->bunnyCount, *(threadStruct->cycles), *(threadStruct->log));
 		//save the game
-		if (*(threadStruct->save) == 1) {
-			if ((savedGame = fopen(threadStruct->fileName, "wb")) == NULL) {
-				fprintf(stderr, "Could not write to savefile\n");
-			}
-			saveGame(savedGame, gridX, gridY, *(threadStruct->anchor), threadStruct->food, threadStruct->foodDur, *(threadStruct->foodCount), *(threadStruct->max_hunger), *(threadStruct->bunnyCount), threadStruct->fileName);
-			fclose(savedGame);
-			threadStruct->msgList[misc]->setText("Saved game");
-		}
+
 		LeaveCriticalSection(&g_bunny);
 
 		if (*threadStruct->csv == 1) {
